@@ -10,4 +10,5 @@ services:
       - ./:/home/node/app
     ports:
       - "80:8081"
+    command: "npm --registry https://registry.npm.taobao.org install express --save"
     command: "npm start"
