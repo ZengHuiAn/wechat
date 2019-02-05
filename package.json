@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/ZengHuiAn/wechat#readme",
   "engines": {
-    "node":"v11.0.0",
+    "node": "v11.0.0",
     "npm": "6.0.0"
+  },
+  "dependencies": {
+    "jshint": "^2.10.0"
   }
 }
