@@ -1,7 +1,7 @@
-console.log("服务器开启中....");
+console.log("server start....");
 function delay() {
     setTimeout(() => {
-        console.log("延迟开启");
+        console.log("port start");
 
         delay()
     }, 1000);
