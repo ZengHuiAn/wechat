@@ -1,0 +1,27 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "description": "微信服务器",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZengHuiAn/wechat.git"
+  },
+  "keywords": [
+    "wechat",
+    "javascript"
+  ],
+  "author": "snake",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZengHuiAn/wechat/issues"
+  },
+  "homepage": "https://github.com/ZengHuiAn/wechat#readme",
+  "engines": {
+    "node":"v11.0.0",
+    "npm": "6.0.0"
+  }
+}
