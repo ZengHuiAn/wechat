@@ -8,7 +8,7 @@ const sha1 = require("sha1");
  */
 
 const config = {
-  token: "snake"
+  token: "snakewww"
 };
 
 const port = 8081;
