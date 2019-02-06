@@ -29,13 +29,15 @@ app.get("/", (request, response) => {
 
   const encrypt = sha1(str);
 
-  console.log("encrypt after data：\n", encrypt);
+  console.log("encrypt after data:\n", encrypt);
 
   if (encrypt === signature) {
     console.log("wechat");
-    response.send(echostr);
   } else {
     console.log("nowechat");
   }
+  console.log("echostr:\n", echostr);
+
+  response.send(echostr);
 });
 app.listen(port, () => console.log(`listen ${port} `));
