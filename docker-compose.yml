@@ -10,5 +10,7 @@ services:
       - ./:/home/node/app
     ports:
       - "80:8081"
+    command: "npm --registry https://registry.npm.taobao.org install --global babel"
     command: "npm --registry https://registry.npm.taobao.org install express --save"
+    command: "babel src --out-dir build"
     command: "npm start"

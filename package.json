@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "description": "微信服务器",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZengHuiAn/wechat.git"
-  },
+  
+  "repository": "git+https://github.com/ZengHuiAn/wechat.git",
   "keywords": [
     "wechat",
     "javascript"
@@ -20,8 +15,51 @@
     "url": "https://github.com/ZengHuiAn/wechat/issues"
   },
   "homepage": "https://github.com/ZengHuiAn/wechat#readme",
+  "engines": {
+    "node": ">=8.0",
+    "yarn": "^1.5.1"
+  },
+  "scripts": {
+    "tslint": "tslint --project .",
+    "tslint:changed": "git diff --name-only origin/master... | grep -E '^assets.*\\.tsx?$' | xargs -r yarn tslint",
+    "tsclint": "tsc --project . --noEmit",
+    "lint": "yarn tslint && yarn tsclint",
+    "tsclint:changed": "((git diff --name-only origin/master... | grep -E '^assets.*\\.tsx?$' > .changes && echo 'Changed files:' && cat .changes || echo 'Nothing changed') && ! (tsc --project . --noEmit | grep -Ff .changes))",
+    "lint:changed": "yarn tslint:changed && yarn tsclint:changed",
+    "lint:ci": "if [ $(git rev-parse --abbrev-ref HEAD) = master ]; then yarn lint; else yarn lint:changed; fi",
+    "debug": "ts-node tools/debug/debug.ts",
+    "build": "ts-node tools/build/build.ts",
+    "update": "ts-node tools/update/index.ts",
+    "upload-assets": "ts-node tools/build/upload.ts",
+    "upload-failed": "ts-node tools/build/uploadFailedFiles.ts",
+    "delete-assets": "ts-node tools/build/deleteHistory.ts",
+    "release:sentry": "./tools/release/sentry.sh",
+    "check:filename": "ts-node tools/fileNameCheck/fileNameCheck.ts"
+  },
+  "devDependencies": {
+    "@sentry/cli": "^1.36.4",
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.9",
+    "@types/node": "^10.5.8",
+    "@types/plist": "^3.0.0",
+    "@types/semver": "^5.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.17.1",
+    "moment": "^2.22.2",
+    "plist": "^3.0.1",
+    "qiniu": "^7.2.1",
+    "semver": "^5.5.1",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
+    "tslint-config-prettier": "^1.12.0",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.8.3"
+  },
   "dependencies": {
-    "express": "^4.16.4",
-    "jshint": "^2.10.0"
+    "@sentry/browser": "^4.0.6",
+    "axios": "^0.18.0",
+    "semver": "^5.5.1",
+    "ts-promise": "2.1.0"
   }
 }
