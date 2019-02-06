@@ -29,13 +29,13 @@ app.get("/", (request, response) => {
 
   const encrypt = sha1(str);
 
-  console.log("加密后的数据：\n", encrypt);
+  console.log("encrypt after data：\n", encrypt);
 
   if (encrypt === signature) {
-    console.log("是微信服务器发来的数据");
+    console.log("wechat");
     response.send(echostr);
   } else {
-    console.log("不是微信服务器发来的数据");
+    console.log("nowechat");
   }
 });
 app.listen(port, () => console.log(`listen ${port} `));
