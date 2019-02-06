@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "微信服务器",
   "main": "index.js",
-  
-  "repository": "git+https://github.com/ZengHuiAn/wechat.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZengHuiAn/wechat.git"
+  },
   "keywords": [
     "wechat",
     "javascript"
@@ -20,6 +22,7 @@
     "yarn": "^1.5.1"
   },
   "scripts": {
+    "start": " yarn add express babel && yarn  && node ./src/index.js",
     "tslint": "tslint --project .",
     "tslint:changed": "git diff --name-only origin/master... | grep -E '^assets.*\\.tsx?$' | xargs -r yarn tslint",
     "tsclint": "tsc --project . --noEmit",
@@ -59,6 +62,8 @@
   "dependencies": {
     "@sentry/browser": "^4.0.6",
     "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "express": "^4.16.4",
     "semver": "^5.5.1",
     "ts-promise": "2.1.0"
   }
