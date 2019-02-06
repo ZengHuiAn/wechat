@@ -3,7 +3,7 @@ const sha1 = require("sha1");
 const config = {
   token: "azhwechat"
 };
-export function confirmWeChat(request, response) {
+function confirmWeChat(request, response) {
   const { signature, echostr, timestamp, nonce } = request.query;
   console.log("request data : \n ", request.query);
   const { token } = config;
