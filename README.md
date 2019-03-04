@@ -12,6 +12,9 @@
     mysql -P 30000 -u root -p  
     mysql -P 30000 -uroot -pprisma
 
+    如果是在另外一个容器里访问
+    mysql -h (局域网ip)192.168.1.6 -uroot -P 30000 -pprisma
+
 ### 查看数据库
 
     show databases;
